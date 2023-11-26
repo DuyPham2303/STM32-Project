@@ -465,46 +465,46 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 		mode++;
 	}
 }
-//void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
-//	if(mode == 1){
-//		if(hadc->Instance == ADC1){
-//			adc_led = HAL_ADC_GetValue(&hadc1);
-//			duty_cycle_led = map(adc_led,0,4095,0,99);
-//			__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,duty_cycle_led);
-//		}
-//	}
-//	else if(mode == 2){
-//		if(hadc->Instance == ADC1){
-//			adc_led = HAL_ADC_GetValue(&hadc1);
-//			duty_cycle_led = map(adc_led,0,4095,0,99);
-//			__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,duty_cycle_led);
-//		}
-//		if(hadc->Instance == ADC2){
-//			adc_servo = HAL_ADC_GetValue(&hadc2);
-//			duty_cycle_servo = map(adc_servo,0,4095,neg90_angle,pos90_angle);
-//			__HAL_TIM_SET_COMPARE(&htim2,TIM_CHANNEL_1,duty_cycle_servo);
-//		}
-//	}
-//	else if(mode == 3){
-//		if(hadc->Instance == ADC1){
-//			adc_servo = HAL_ADC_GetValue(&hadc1);
-//			duty_cycle_servo = map(adc_servo,0,4095,neg90_angle,pos90_angle);
-//		    __HAL_TIM_SET_COMPARE(&htim2,TIM_CHANNEL_1,duty_cycle_servo);
-//		}
-//		if(hadc->Instance == ADC2){
-//			adc_led = HAL_ADC_GetValue(&hadc2);
-//			duty_cycle_led = map(adc_led,0,4095,0,99);
-//			__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,duty_cycle_led);
-//		}
-//	}
-//	else if(mode == 4){
-//		duty_cycle_led = 0;
-//		duty_cycle_servo = 0;
-//		 __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,duty_cycle_led);
-//		 __HAL_TIM_SET_COMPARE(&htim2,TIM_CHANNEL_1,duty_cycle_servo);
-//		mode = 0;
-//	}
-//}
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
+	if(mode == 1){
+		if(hadc->Instance == ADC1){
+			adc_led = HAL_ADC_GetValue(&hadc1);
+			duty_cycle_led = map(adc_led,0,4095,0,99);
+			__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,duty_cycle_led);
+		}
+	}
+	else if(mode == 2){
+		if(hadc->Instance == ADC1){
+			adc_led = HAL_ADC_GetValue(&hadc1);
+			duty_cycle_led = map(adc_led,0,4095,0,99);
+			__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,duty_cycle_led);
+		}
+		if(hadc->Instance == ADC2){
+			adc_servo = HAL_ADC_GetValue(&hadc2);
+			duty_cycle_servo = map(adc_servo,0,4095,neg90_angle,pos90_angle);
+			__HAL_TIM_SET_COMPARE(&htim2,TIM_CHANNEL_1,duty_cycle_servo);
+		}
+	}
+	else if(mode == 3){
+		if(hadc->Instance == ADC1){
+			adc_servo = HAL_ADC_GetValue(&hadc1);
+			duty_cycle_servo = map(adc_servo,0,4095,neg90_angle,pos90_angle);
+		    __HAL_TIM_SET_COMPARE(&htim2,TIM_CHANNEL_1,duty_cycle_servo);
+		}
+		if(hadc->Instance == ADC2){
+			adc_led = HAL_ADC_GetValue(&hadc2);
+			duty_cycle_led = map(adc_led,0,4095,0,99);
+			__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,duty_cycle_led);
+		}
+	}
+	else if(mode == 4){
+		duty_cycle_led = 0;
+		duty_cycle_servo = 0;
+		 __HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,duty_cycle_led);
+		 __HAL_TIM_SET_COMPARE(&htim2,TIM_CHANNEL_1,duty_cycle_servo);
+		mode = 0;
+	}
+}
 /* USER CODE END 4 */
 
 /**
